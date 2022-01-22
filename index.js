@@ -25,7 +25,7 @@ const sendMessage = async (msg) => {
     }
 }
 
-const main = async (shouldSendIncompleteData = false) => {
+async function main(shouldSendIncompleteData = false) {
     let issPosition;
     let answerString = 'Failed to get the information due to some error. Sorry :(';
     try {
