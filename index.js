@@ -16,11 +16,13 @@ const getLocationInfoByCoordinatesUrl = ({ longitude, latitude }) => {
     return locationInfoByCoordinatesUrl;
 }
 
-const sendMessage = (msg) => {
+const sendMessage = async (msg) => {
     console.log(`Trying to send the message: "${msg}".`);
-    bot
-        .sendMessage(process.env.TELEGRAM_CHAT_ID, msg)
-        .catch(err => console.error(`Failed to send message;`, err));
+    try {
+        bot.sendMessage(process.env.TELEGRAM_CHAT_ID, msg)
+    } catch (err) {
+        console.error(`Failed to send message;`, err);
+    }
 }
 
 const main = async (shouldSendIncompleteData = false) => {
